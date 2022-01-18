@@ -2,8 +2,6 @@ import { Scene } from "react-scrollmagic";
 import { SplitColorChannelText } from "react-text-fun";
 import { animated, Spring, SpringValue } from "react-spring";
 import { useState } from "react";
-import { Simulate } from "react-dom/test-utils";
-import progress = Simulate.progress;
 
 const getRandomArbitrary = (min: number, max: number) => {
   return Math.random() * (max - min) + min;
