@@ -14,20 +14,39 @@ const Scenes = () => {
     <Controller>
       <TitleScene />
       <Scene duration={1000} pin>
-        <div className="flex flex-col justify-center items-center h-28">
-          <div className="underline flex justify-center items-center">WORK</div>
-          <div className="flex justify-center items-center text-4xl">
-            🧑🏾‍💻 @{" "}
+        {(progress: number) => (
+          <div className="flex flex-col justify-center items-center h-28">
+            <div className="underline flex justify-center items-center">
+              WORK
+            </div>
+            <div className="flex justify-center items-center text-4xl">
+              <span className="mr-9 ml-5">🧑🏾‍💻</span>@
+              {progress > 0.1 ? (
+                <img
+                  src="images/docto.gif"
+                  style={{ width: 70, marginLeft: 22 }}
+                />
+              ) : (
+                <div style={{ width: 70, marginLeft: 22 }} />
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </Scene>
       <Scene duration={1000} pin>
-        <div className="flex flex-col justify-center items-center h-28">
-          <div className="underline flex justify-center items-center">FROM</div>
-          <div className="flex justify-center items-center text-4xl">
-            🇸🇪 🇮🇳 🇩🇪 🇩🇰
+        {(progress: number) => (
+          <div className="flex flex-col justify-center items-center h-28">
+            <div className="underline flex justify-center items-center">
+              FROM
+            </div>
+            <div className="flex justify-center items-center text-4xl w-full">
+              🇸🇪
+              {progress > 0.25 && "+🇮🇳"}
+              {progress > 0.5 && "+🇩🇪"}
+              {progress > 0.75 && "+🇩🇰"}
+            </div>
           </div>
-        </div>
+        )}
       </Scene>
       <Scene duration={1000} pin>
         <div className="flex justify-center items-center h-28">
