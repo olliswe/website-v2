@@ -2,10 +2,12 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { NextPage } from "next";
-import { Controller, Scene } from "react-scrollmagic";
-import { SplitColorChannelText } from "react-text-fun";
 import Head from "next/head";
-import TitleScene from "../components/TitleScene";
+import dynamic from "next/dynamic";
+
+const Scenes = dynamic(() => import("../components/Scenes"), {
+  ssr: false,
+});
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -119,29 +121,7 @@ const Home: NextPage = () => {
               </Transition>
             </Popover>
             <main className="">
-              <Controller>
-                <TitleScene />
-                <Scene duration={1000} pin>
-                  <div className="flex justify-center items-center">
-                    WORK: fullstack developer
-                  </div>
-                </Scene>
-                <Scene duration={1000} pin>
-                  <div className="flex justify-center items-center">
-                    Background: Sweden, Denmark, Germany, India,
-                  </div>
-                </Scene>
-                <Scene duration={1000} pin>
-                  <div className="flex justify-center items-center">
-                    Education: Cam Engineering + Internet
-                  </div>
-                </Scene>
-                <Scene duration={1000} pin>
-                  <div className="flex justify-center items-center">
-                    Passions: Bike, Climb, Run, Warhammer
-                  </div>
-                </Scene>
-              </Controller>
+              <Scenes />
             </main>
           </div>
         </div>

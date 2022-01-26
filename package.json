@@ -15,7 +15,8 @@
     "react-dom": "17.0.2",
     "react-scrollmagic": "^2.3.0",
     "react-spring": "^9.4.2",
-    "react-text-fun": "^1.0.0"
+    "react-text-fun": "^1.0.0",
+    "use-font-face-observer": "^1.1.77"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
