@@ -1,49 +1,14 @@
 import { Scene } from "react-scrollmagic";
 import { SplitColorChannelText } from "react-text-fun";
-import { animated, Spring, SpringValue } from "react-spring";
-import { useRef, useState } from "react";
-
-const getRandomArbitrary = (min: number, max: number) => {
-  return Math.random() * (max - min) + min;
-};
-
-const AnimatedSplitColorChannelText = animated(
-  ({
-    rgbOffset,
-    rotation,
-  }: {
-    rgbOffset: SpringValue<number>;
-    rotation: SpringValue<number>;
-  }) => (
-    <SplitColorChannelText
-      text="OLIVER IYER"
-      fontSize={40}
-      addBlur={true}
-      addNoise={true}
-      fontFamily={"oi-regular"}
-      rgbOffset={rgbOffset}
-      rotation={rotation}
-    />
-  )
-);
+import React, { useRef } from "react";
 
 const TitleScene = () => {
-  const [flip, setFlip] = useState(false);
-  const [duration, setDuration] = useState(1000);
-  const [delay, setDelay] = useState(3000);
   const initialProgress = useRef<number>();
-
-  const onRest = () => {
-    setFlip((prev) => !prev);
-    setDuration(getRandomArbitrary(1500, 2000));
-    setDelay(getRandomArbitrary(2000, 5000));
-  };
 
   return (
     <Scene duration={1000} pin>
       {(progress: number) => {
         if (!initialProgress.current && progress > 0) {
-          console.log(progress);
           initialProgress.current = progress;
         }
         return (
@@ -61,23 +26,37 @@ const TitleScene = () => {
               />
             ) : (
               // TODO: HIDE INSTEAD OF NOT RENDERING
-              <Spring
-                from={{ rgbOffset: 0.07, rotation: -45 }}
-                to={{ rgbOffset: 0.3, rotation: 45 }}
-                config={{ duration }}
-                reset={true}
-                reverse={flip}
-                delay={flip ? 0 : delay}
-                onRest={onRest}
-              >
-                {({ rgbOffset, rotation }) => (
-                  <AnimatedSplitColorChannelText
-                    rgbOffset={rgbOffset}
-                    rotation={rotation}
-                  />
-                )}
-              </Spring>
+              <SplitColorChannelText
+                text="OLIVER IYER"
+                fontSize={40}
+                addBlur={true}
+                addNoise={true}
+                fontFamily={"oi-regular"}
+                rgbOffset={0}
+                rotation={0}
+              />
             )}
+            <video
+              style={{
+                position: "fixed",
+                minWidth: "100%",
+                minHeight: "120%",
+                top: "50%",
+                left: "50%",
+                width: "auto",
+                height: "auto",
+                transform: "translate(-50%, -50%)",
+                zIndex: "-1",
+                opacity: 0.4 - progress * 0.4,
+                objectFit: "cover",
+              }}
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/images/waves.mov" />
+            </video>
           </div>
         );
       }}

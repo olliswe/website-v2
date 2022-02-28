@@ -2,8 +2,9 @@ import { Fragment } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { NextPage } from "next";
-import Head from "next/head";
 import dynamic from "next/dynamic";
+import ScrollTip from "../components/ScrollTip";
+import Head from "next/head";
 
 const Scenes = dynamic(() => import("../components/Scenes"), {
   ssr: false,
