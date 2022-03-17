@@ -1,30 +1,43 @@
 import React from "react";
 import { Scene } from "react-scrollmagic";
 
+const PROGRESS_CUTS = 0.8 / 7;
+
 const EducationScene = () => (
-  <Scene duration={2000} pin>
+  <Scene duration={3000} pin>
     {(progress: number) => (
       <div style={{ position: "relative" }}>
-        <img
-          src="images/graduation/grad1.jpg"
-          width="auto"
-          height="auto"
-          style={{
-            transform: "translateY(-350px)",
-            position: "absolute",
-            top: 0,
-          }}
-        />
-        <img
-          src="images/graduation/grad2.jpg"
-          width="auto"
-          height="auto"
-          style={{
-            transform: "translateY(-350px)",
-            position: "absolute",
-            top: 0,
-          }}
-        />
+        <div className="flex flex-col justify-center items-center h-28">
+          {progress < 0.2 ? (
+            <div className="underline flex justify-center items-center">
+              EDUCATION
+            </div>
+          ) : (
+            <img src="images/camlogo.png" style={{ width: 150 }} />
+          )}
+        </div>
+        {Array(6)
+          .fill(0)
+          .map((_, index) => (
+            <img
+              src={`images/graduation/grad${index + 1}.jpg`}
+              width="400px"
+              height="auto"
+              key={index}
+              style={{
+                transform: "translateY(-350px)",
+                opacity: progress < 0.1 ? 0 : 1,
+                transition: "opacity 0.5s ease-in-out",
+                position: "absolute",
+                top: 0,
+                visibility:
+                  progress < PROGRESS_CUTS * (index + 1) + 0.1 &&
+                  progress > PROGRESS_CUTS * index + 0.1
+                    ? undefined
+                    : "hidden",
+              }}
+            />
+          ))}
       </div>
     )}
   </Scene>
