@@ -44,15 +44,6 @@ const Home: NextPage = () => {
 
             <main className="">
               <Scenes />
-              <video
-                style={{
-                  display: "none",
-                }}
-                playsInline
-                preload={"auto"}
-              >
-                <source src="/images/waves.mp4" />
-              </video>
             </main>
           </div>
         </div>
