@@ -48,13 +48,10 @@ const Home: NextPage = () => {
                 style={{
                   display: "none",
                 }}
-                autoPlay
-                muted
-                loop
                 playsInline
                 preload={"auto"}
               >
-                <source src="/images/waves.mov" />
+                <source src="/images/waves.mp4" />
               </video>
             </main>
           </div>

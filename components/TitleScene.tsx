@@ -57,7 +57,7 @@ const TitleScene = () => {
               playsInline
               preload={"auto"}
             >
-              <source src="/images/waves.mov" />
+              <source src="/images/waves.mp4" />
             </video>
             <div
               style={{
