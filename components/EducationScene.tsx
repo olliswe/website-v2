@@ -8,12 +8,19 @@ const EducationScene = () => (
     {(progress: number) => (
       <div style={{ position: "relative" }}>
         <div className="flex flex-col justify-center items-center h-28">
-          {progress < 0.2 ? (
+          {progress < 0.5 ? (
             <div className="underline flex justify-center items-center">
               EDUCATION
             </div>
           ) : (
-            <img src="images/camlogo.png" style={{ width: 150 }} />
+            <img
+              src="images/camlogo.png"
+              style={{
+                width: 150,
+                opacity: progress > PROGRESS_CUTS * 5 + 0.1 + 0.1 ? 1 : 0,
+                transition: "opacity 2s ease-in-out",
+              }}
+            />
           )}
         </div>
         {Array(6)
@@ -27,7 +34,7 @@ const EducationScene = () => (
               style={{
                 transform: "translateY(-350px)",
                 opacity: progress < 0.1 ? 0 : 1,
-                transition: "opacity 0.5s ease-in-out",
+                transition: "opacity 1s ease-in-out",
                 position: "absolute",
                 top: 0,
                 visibility:

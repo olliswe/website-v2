@@ -1,6 +1,7 @@
 import { Scene } from "react-scrollmagic";
 import { SplitColorChannelText } from "react-text-fun";
 import React, { useRef } from "react";
+import ScrollTip from "./ScrollTip";
 
 const TitleScene = () => {
   const initialProgress = useRef<number>();
@@ -12,7 +13,7 @@ const TitleScene = () => {
           initialProgress.current = progress;
         }
         return (
-          <div className="flex justify-center items-center">
+          <div className="flex relative justify-center items-center">
             {initialProgress.current && progress > initialProgress.current ? (
               // TODO: HIDE INSTEAD OF NOT RENDERING
               <SplitColorChannelText
@@ -57,6 +58,19 @@ const TitleScene = () => {
             >
               <source src="/images/waves.mov" />
             </video>
+            <div
+              style={{
+                position: "fixed",
+                width: "100%",
+                top: "80%",
+                opacity: 1 - progress,
+                animation: "bounce 0.8s infinite alternate",
+              }}
+              className="flex flex-col items-center"
+            >
+              <ScrollTip />
+              <div>scroll</div>
+            </div>
           </div>
         );
       }}

@@ -6,10 +6,10 @@ import WorkScene from "./WorkScene";
 import CountryScene from "./CountryScene";
 import EducationScene from "./EducationScene";
 import ScrollTip from "./ScrollTip";
+import PassionsScene from "./PassionsScene";
 
 const Scenes = () => {
   const isFontListLoaded = useFontFaceObserver([{ family: `oi-regular` }]);
-  // const [showTooltip, setShowToolTip] = useState(true);
 
   if (!isFontListLoaded) {
     return <div />;
@@ -21,9 +21,7 @@ const Scenes = () => {
       <WorkScene />
       <CountryScene />
       <EducationScene />
-      {/*<div className="fixed bottom-5 w-full">*/}
-      {/*    <ScrollTip />*/}
-      {/*</div>*/}
+      <PassionsScene />
     </Controller>
   );
 };
