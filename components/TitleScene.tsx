@@ -75,7 +75,7 @@ const TitleScene = () => {
               loop
               playsInline
               preload={"auto"}
-              onLoadedData={() => {
+              onCanPlay={() => {
                 setLoaded(true);
               }}
             >
