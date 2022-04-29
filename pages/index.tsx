@@ -1,6 +1,7 @@
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import Script from "next/script";
 
 const Scenes = dynamic(() => import("../components/Scenes"), {
   ssr: false,
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <script src="https://unpkg.com/blotterjs-fork@0.1.0/build/blotter.min.js" />
+        <Script src="https://unpkg.com/blotterjs-fork@0.1.0/build/blotter.min.js" />
       </Head>
       <div className="relative bg-white overflow-hidden">
         <div className="mx-auto">
