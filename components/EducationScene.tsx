@@ -1,10 +1,10 @@
 import React from "react";
 import { Scene } from "react-scrollmagic";
 
-const PROGRESS_CUTS = 0.8 / 7;
+const PROGRESS_CUTS = 0.7 / 7;
 
 const EducationScene = () => (
-  <Scene duration={3000} pin>
+  <Scene duration={5000} pin>
     {(progress: number) => (
       <div style={{ position: "relative" }}>
         <div className="flex flex-col justify-center items-center h-28">
@@ -32,14 +32,18 @@ const EducationScene = () => (
               height="auto"
               key={index}
               style={{
-                transform: "translateY(-350px)",
-                opacity: progress < 0.1 ? 0 : 1,
+                opacity:
+                  progress < 0.1 || progress > PROGRESS_CUTS * 6 + 0.1 ? 0 : 1,
                 transition: "opacity 1s ease-in-out",
                 position: "absolute",
+                left: "50%",
+                transform: "translate(-50%, -350px) ",
                 top: 0,
                 visibility:
-                  progress < PROGRESS_CUTS * (index + 1) + 0.1 &&
-                  progress > PROGRESS_CUTS * index + 0.1
+                  index === 5 && progress > PROGRESS_CUTS * index + 0.1
+                    ? undefined
+                    : progress < PROGRESS_CUTS * (index + 1) + 0.1 &&
+                      progress > PROGRESS_CUTS * index + 0.1
                     ? undefined
                     : "hidden",
               }}
