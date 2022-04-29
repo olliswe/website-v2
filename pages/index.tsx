@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <Script src="https://unpkg.com/blotterjs-fork@0.1.0/build/blotter.min.js" />
+        <script src="https://unpkg.com/blotterjs-fork@0.1.0/build/blotter.min.js" />
       </Head>
       <div className="relative bg-white overflow-hidden">
         <div className="mx-auto">
