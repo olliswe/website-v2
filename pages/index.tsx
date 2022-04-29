@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Script from "next/script";
+import React from "react";
 
 const Scenes = dynamic(() => import("../components/Scenes"), {
   ssr: false,
@@ -43,6 +44,18 @@ const Home: NextPage = () => {
 
             <main className="">
               <Scenes />
+              <video
+                style={{
+                  display: "none",
+                }}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload={"auto"}
+              >
+                <source src="/images/waves.mov" />
+              </video>
             </main>
           </div>
         </div>

@@ -55,6 +55,7 @@ const TitleScene = () => {
               muted
               loop
               playsInline
+              preload={"auto"}
             >
               <source src="/images/waves.mov" />
             </video>
