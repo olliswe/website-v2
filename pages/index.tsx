@@ -44,6 +44,7 @@ const Home: NextPage = () => {
 
             <main className="">
               <Scenes />
+              <img src="/images/clouds.gif" style={{ display: "none" }} />
             </main>
           </div>
         </div>
