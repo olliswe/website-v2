@@ -1,6 +1,6 @@
 import { Scene } from "react-scrollmagic";
 import { SplitColorChannelText } from "react-text-fun";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import ScrollTip from "./ScrollTip";
 
 const TitleScene = () => {
