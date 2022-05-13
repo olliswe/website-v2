@@ -7,6 +7,7 @@ import CountryScene from "./CountryScene";
 import EducationScene from "./EducationScene";
 import ScrollTip from "./ScrollTip";
 import PassionsScene from "./PassionsScene";
+import GetInTouchScene from "./GetInTouchScene";
 
 const Scenes = () => {
   const isFontListLoaded = useFontFaceObserver([{ family: `oi-regular` }]);
@@ -22,6 +23,7 @@ const Scenes = () => {
       <CountryScene />
       <EducationScene />
       <PassionsScene />
+      <GetInTouchScene />
     </Controller>
   );
 };
