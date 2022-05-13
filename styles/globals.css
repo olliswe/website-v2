@@ -24,4 +24,9 @@ a {
   box-sizing: border-box;
 }
 
+
+#title-container {
+  margin-top:25px !important
+}
+
 @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(10px); } }

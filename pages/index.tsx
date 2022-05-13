@@ -1,13 +1,20 @@
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
+import ScrollTip from "../components/ScrollTip";
+import ScrollTipWrapper from "../components/ScrollTipWrapper";
 
 const Scenes = dynamic(() => import("../components/Scenes"), {
   ssr: false,
 });
 
 const Home: NextPage = () => {
+  const [scrolltipState, setScrolltipState] = useState({
+    hideText: false,
+    hideContainer: false,
+  });
+
   return (
     <>
       <Head>
@@ -42,10 +49,12 @@ const Home: NextPage = () => {
             </div>
 
             <main className="">
-              <Scenes />
+              <Scenes setScrolltipState={setScrolltipState} />
               <img src="/images/clouds.gif" style={{ display: "none" }} />
               <img src="/images/40k.png" style={{ display: "none" }} />
               <img src="/images/docto.gif" style={{ display: "none" }} />
+              <ScrollTipWrapper {...{ scrolltipState, padding: "0 80% 0 0" }} />
+              <ScrollTipWrapper {...{ scrolltipState, padding: "0 0 0 80%" }} />
             </main>
           </div>
         </div>
