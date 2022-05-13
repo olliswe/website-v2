@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Scene } from "react-scrollmagic";
+import Elevator from "../utils/elevator";
 
 const HideScrolltip = ({ setScrolltipState }: any) => {
   useEffect(() => {
@@ -11,6 +12,15 @@ const HideScrolltip = ({ setScrolltipState }: any) => {
 };
 
 const GetInTouchScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
+  const handleClick = () => {
+    const elevator = new Elevator({
+      duration: 5000,
+      mainAudio: "/music/demo_music_elevator.mp3",
+      endAudio: "/music/demo_music_ding.mp3",
+    });
+    elevator.elevate();
+  };
+
   return (
     <Scene duration={1000} pin>
       {(progress: number) => (
@@ -22,6 +32,9 @@ const GetInTouchScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
             <img src="/images/LinkedIn.png" style={{ width: 80 }} />
           </div>
           {progress > 0.1 && <HideScrolltip {...{ setScrolltipState }} />}
+          <a href="#" onClick={handleClick}>
+            BACK TO TOP
+          </a>
         </div>
       )}
     </Scene>
