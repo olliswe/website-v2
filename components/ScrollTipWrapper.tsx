@@ -18,6 +18,7 @@ const ScrollTipWrapper = ({ scrolltipState, padding }: any) => {
       <div
         style={{
           opacity: scrolltipState.hideText ? 0 : 1,
+          transition: "opacity ease-out 1s",
         }}
       >
         scroll

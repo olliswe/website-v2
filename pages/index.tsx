@@ -2,7 +2,6 @@ import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import React, { useState } from "react";
-import ScrollTip from "../components/ScrollTip";
 import ScrollTipWrapper from "../components/ScrollTipWrapper";
 
 const Scenes = dynamic(() => import("../components/Scenes"), {

@@ -1,6 +1,15 @@
 import { Scene } from "react-scrollmagic";
 import { SplitColorChannelText } from "react-text-fun";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
+
+const HideScrollTipWrapper = ({ children, setScrolltipState }: any) => {
+  useEffect(() => {
+    setScrolltipState((prev: any) => ({ ...prev, hideText: true }));
+    return () =>
+      setScrolltipState((prev: any) => ({ ...prev, hideText: false }));
+  }, [setScrolltipState]);
+  return <>{children}</>;
+};
 
 const TitleScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
   const initialProgress = useRef<number>();
@@ -18,15 +27,17 @@ const TitleScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
           >
             {initialProgress.current && progress > initialProgress.current ? (
               // TODO: HIDE INSTEAD OF NOT RENDERING
-              <SplitColorChannelText
-                text="OLIVER IYER"
-                fontSize={40}
-                addBlur={true}
-                addNoise={true}
-                fontFamily={"oi-regular"}
-                rgbOffset={0.07 + progress - initialProgress.current}
-                rotation={-45}
-              />
+              <HideScrollTipWrapper setScrolltipState={setScrolltipState}>
+                <SplitColorChannelText
+                  text="OLIVER IYER"
+                  fontSize={40}
+                  addBlur={true}
+                  addNoise={true}
+                  fontFamily={"oi-regular"}
+                  rgbOffset={0.07 + progress - initialProgress.current}
+                  rotation={-45}
+                />
+              </HideScrollTipWrapper>
             ) : (
               // TODO: HIDE INSTEAD OF NOT RENDERING
               <SplitColorChannelText

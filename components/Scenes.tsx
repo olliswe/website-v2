@@ -22,7 +22,7 @@ const Scenes = ({ setScrolltipState }: { setScrolltipState: any }) => {
       <CountryScene />
       <EducationScene />
       <PassionsScene />
-      <GetInTouchScene />
+      <GetInTouchScene setScrolltipState={setScrolltipState} />
     </Controller>
   );
 };
