@@ -1,18 +1,49 @@
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ScrollTipWrapper from "../components/ScrollTipWrapper";
 
 const Scenes = dynamic(() => import("../components/Scenes"), {
   ssr: false,
 });
 
+const IMAGES_TO_LOAD = [
+  "/images/clouds.gif",
+  "/images/40k.png",
+  "/images/docto.gif",
+  "images/camlogo.png",
+  "images/graduation/grad1.jpg",
+  "images/graduation/grad2.jpg",
+  "images/graduation/grad3.jpg",
+  "images/graduation/grad4.jpg",
+  "images/graduation/grad5.jpg",
+  "images/graduation/grad6.jpg",
+];
+
+const loadImage = (source: string) =>
+  new Promise<void>((resolve, _) => {
+    const image = new Image();
+    console.time("Image Fully Downloaded in");
+    image.src = source;
+    image.onload = () => resolve();
+  });
+
 const Home: NextPage = () => {
+  const [loadingImages, setLoadingImages] = useState(true);
   const [scrolltipState, setScrolltipState] = useState({
     hideText: false,
     hideContainer: false,
   });
+
+  useEffect(() => {
+    const loadImages = async () => {
+      await Promise.all(IMAGES_TO_LOAD.map(loadImage));
+      setLoadingImages(false);
+    };
+
+    loadImages();
+  }, []);
 
   return (
     <>
@@ -48,12 +79,19 @@ const Home: NextPage = () => {
             </div>
 
             <main className="">
-              <Scenes setScrolltipState={setScrolltipState} />
-              <img src="/images/clouds.gif" style={{ display: "none" }} />
-              <img src="/images/40k.png" style={{ display: "none" }} />
-              <img src="/images/docto.gif" style={{ display: "none" }} />
-              <ScrollTipWrapper {...{ scrolltipState, padding: "0 80% 0 0" }} />
-              <ScrollTipWrapper {...{ scrolltipState, padding: "0 0 0 80%" }} />
+              {loadingImages ? (
+                <></>
+              ) : (
+                <>
+                  <Scenes setScrolltipState={setScrolltipState} />
+                  <ScrollTipWrapper
+                    {...{ scrolltipState, padding: "0 80% 0 0" }}
+                  />
+                  <ScrollTipWrapper
+                    {...{ scrolltipState, padding: "0 0 0 80%" }}
+                  />
+                </>
+              )}
             </main>
           </div>
         </div>
