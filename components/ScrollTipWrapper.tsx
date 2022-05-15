@@ -11,6 +11,7 @@ const ScrollTipWrapper = ({ scrolltipState, padding }: any) => {
         opacity: scrolltipState.hideContainer ? 0 : 0.5,
         animation: "bounce 0.8s infinite alternate",
         pointerEvents: "none",
+        zIndex: 1000,
         padding,
       }}
       className="flex flex-col items-center"
