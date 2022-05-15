@@ -33,6 +33,7 @@ const GetInTouchScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
               className="flex justify-center items-center mr-5"
               href="https://www.linkedin.com/in/oliver-iyer/"
               target="_blank"
+              rel="noreferrer"
             >
               <img src="/images/LinkedIn.png" style={{ height: 21 }} />
             </a>
@@ -40,6 +41,7 @@ const GetInTouchScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
               className="flex justify-center items-center"
               href="https://github.com/olliswe"
               target="_blank"
+              rel="noreferrer"
             >
               <img src="/images/github2.png" style={{ height: 30 }} />
             </a>
