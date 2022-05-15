@@ -28,12 +28,25 @@ const GetInTouchScene = ({ setScrolltipState }: { setScrolltipState: any }) => {
           <div className="underline flex justify-center items-center mb-3">
             GET IN TOUCH 🤝
           </div>
-          <div className="flex justify-center items-center text-4xl w-full">
-            <img src="/images/LinkedIn.png" style={{ width: 80 }} />
+          <div className="flex justify-center items-center text-4xl w-full mt-5">
+            <a
+              className="flex justify-center items-center mr-5"
+              href="https://www.linkedin.com/in/oliver-iyer/"
+              target="_blank"
+            >
+              <img src="/images/LinkedIn.png" style={{ height: 21 }} />
+            </a>
+            <a
+              className="flex justify-center items-center"
+              href="https://github.com/olliswe"
+              target="_blank"
+            >
+              <img src="/images/github2.png" style={{ height: 30 }} />
+            </a>
           </div>
           {progress > 0.1 && <HideScrolltip {...{ setScrolltipState }} />}
-          <a href="#" onClick={handleClick}>
-            BACK TO TOP
+          <a href="#" onClick={handleClick} className="mt-20">
+            back to top
           </a>
         </div>
       )}
