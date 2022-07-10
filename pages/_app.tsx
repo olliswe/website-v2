@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           as="font"
           type="font/woff2"
         />
+        <link rel="icon" href="/icon.png" />
       </Head>
       <Component {...pageProps} />
     </>
