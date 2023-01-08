@@ -11,7 +11,7 @@ const Scenes = dynamic(() => import("../components/Scenes"), {
 const IMAGES_TO_LOAD = [
   "/images/clouds.gif",
   "/images/40k.png",
-  "/images/docto.gif",
+  "/images/vc.gif",
   "images/camlogo.png",
   "images/graduation/grad1.jpg",
   "images/graduation/grad2.jpg",
